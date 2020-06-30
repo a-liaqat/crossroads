@@ -1,0 +1,41 @@
+/*@import '@angular/material/prebuilt-themes/deeppurple-amber.css';*/
+
+/*.container{
+    background-image: 'url(../assets/styling-images/background_wood.jpg)';
+}
+*/
+
+
+
+.overlay{
+	
+	height: 60vh;
+	overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  padding: 50px;
+	
+}
+
+.sign-up{
+	margin: 0 auto;
+	width: 50%;
+	text-align: center;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.nav-button{
+	/*justify-content: flex-end;*/
+	float: right;
+	margin: 20px;
+}

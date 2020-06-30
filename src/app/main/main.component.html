@@ -1,0 +1,69 @@
+<!-- 
+
+<body>
+
+<mat-slider min="1" max="100" step="1" value="1" color="warn"></mat-slider>
+
+
+<div class="example-button-row">
+  <button mat-raised-button>Basic</button>
+  <button mat-raised-button color="primary">Primary</button>
+  <button mat-raised-button color="accent">Accent</button>
+  <button mat-raised-button color="warn">Warn</button>
+  <button mat-raised-button disabled>Disabled</button>
+</div>
+
+<p> hi</p>
+</body> -->
+
+<!-- <style>
+body {
+  background-image: url('../assets/styling-images/background-wood.jpg');
+}
+</style> -->
+
+<!-- <div class="container">
+  <h1>Hello everyone</h1>
+</div>
+ -->
+
+
+<div class = "bg" [ngStyle]="{backgroundImage: 'url(../assets/styling-images/background_wood.jpg)'}">
+	
+	<div class = "overlay" [ngStyle]="{backgroundImage: 'url(../assets/styling-images/background_papyrus.jpg)'}">
+
+  <div class = "sign-up">
+
+  <h1 class="mat-display-1"> CrossRoads: Stories</h1>
+	
+	<form class="example-form">
+
+  <mat-form-field class="example-full-width">
+    <mat-label>ID</mat-label>
+    <input matInput placeholder="Ask the researcher for your ID" (keyup.enter)="OnInputID($event)" (blur)="OnInputID($event)">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Grandchild Name</mat-label>
+    <input matInput placeholder="What is your name?" (keyup.enter)="OnInputGkName($event)" (blur)="OnInputGkName($event)">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Grandparent Name</mat-label>
+    <input matInput placeholder="What do you call your grandparent?" (keyup.enter)="OnInputGpName($event)" (blur)="OnInputGpName($event)">
+  </mat-form-field>
+  
+</form>
+
+</div>
+  <!-- <h1>{{product.id}}</h1> -->
+
+	<button mat-raised-button class = "nav-button" color="primary" [routerLink] = "['/hints', f_id]">Start Storytelling</button>
+
+   <!-- <p>{{product_id}}</p>
+    <a [routerLink]="['/hints', product_id]">Product Detail</a> -->
+
+</div>
+	
+</div>
+

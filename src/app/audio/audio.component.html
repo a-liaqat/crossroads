@@ -1,0 +1,20 @@
+<div class = "bg" [ngStyle]="{backgroundImage: 'url(../assets/styling-images/background_wood.jpg)'}">
+
+<div class = "overlay" [ngStyle]="{backgroundImage: 'url(../assets/styling-images/background_papyrus.jpg)'}">
+
+<h1 class = "mat-headline">When you are ready to tell your story, press the "Start Recording" button</h1>
+
+<div style="text-align:center;margin-top: 200px;" >
+<button (click)="initiateRecording()" mat-raised-button *ngIf="!recording" color="primary" style="cursor: pointer;font-size: 30px;"> Start Recording </button>
+<button (click)="stopRecording()" mat-raised-button *ngIf="recording" color="warn" style="cursor: pointer;font-size: 30px;"> Stop Recording </button>
+<audio controls="" *ngIf="url">
+<source [src]="sanitize(url)" type="audio/wav">
+</audio>
+</div>
+
+
+
+<button mat-raised-button class = "nav-button" color="primary" routerLink = "/story">Start Drawing</button>
+
+</div>
+</div>
