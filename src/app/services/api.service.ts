@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 //import { AppConfigService } from '../providers/app-config.service';
 //import { AppConfigProperties } from '../interfaces/app-config';
 
@@ -19,7 +19,7 @@ export class ApiService {
   // readonly viz_object_endpoint: string = 'http://flattening-the-curve-backend.apps.hmf.q7z3.p1.openshiftapps.com/api/viz'
   readonly viz_object_endpoint: string = 'https://flatteningthecurve-staging.herokuapp.com/api/viz';
   
-  readonly dummy_endpoint: string = 'http://dummy.restapiexample.com/api/v1/create';
+  readonly dummy_endpoint: string = 'https://crossroads-api.herokuapp.com/persons';
 
 
   // readonly plot_object_endpoint: string = this.appConfigProperties.base_url + 'api/plots';
@@ -35,6 +35,20 @@ export class ApiService {
 
   constructor(private http_client: HttpClient) {
     
+  }
+
+  post_family_obj(family) {
+    return this.http_client.post(this.dummy_endpoint, family);
+  }
+
+  get_family_obj(f_id: string) {
+    let params = new HttpParams().set("f_id", f_id);
+    
+    // params = params.append('f_id', f_id);
+    // params = {
+    //   "f_id": f_id
+    // }
+    return this.http_client.get(this.dummy_endpoint);
   }
 
   get_twitter_obj() {

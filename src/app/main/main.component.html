@@ -58,7 +58,7 @@ body {
 </div>
   <!-- <h1>{{product.id}}</h1> -->
 
-	<button mat-raised-button class = "nav-button" color="primary" [routerLink] = "['/hints', f_id]">Start Storytelling</button>
+	<button mat-raised-button class = "nav-button" color="primary" (click) = "form_submit()" [routerLink] = "['/hints', f_id]">Start Storytelling</button>
 
    <!-- <p>{{product_id}}</p>
     <a [routerLink]="['/hints', product_id]">Product Detail</a> -->

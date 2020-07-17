@@ -20,9 +20,14 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 export class HintsComponent implements OnInit {
 
 jsonObj: any;
+famObj: any;
 window_subscription: Subscription;
 product_id: string;
 selectedIndex: string;
+
+f_id: string;
+gk_name: string;
+gp_name: string;
 
 
 //connect to family db
@@ -76,6 +81,8 @@ hintArr = [
   constructor(private host_service: HostService, private api_service: ApiService, private shared: SharedService, public dialog: MatDialog, private actRoute: ActivatedRoute) { 
      this.product_id = this.actRoute.snapshot.params.id;
 
+
+
   }
 
   // message =  "Hey I am child 1";
@@ -86,22 +93,37 @@ hintArr = [
   	// this.window_subscription = this.host_service.onWindowResize.subscribe(window => {
    //    this.refresh_layout(window.innerWidth);
    //  });
-  	this.fetchVizObj();
+  	
+
+    this.fetchVizObj();
 
     console.log(JSON.stringify(this.employee));
 
 
    //switch this out for own api to add hint to family
-   this.api_service.get_dummy_obj(JSON.stringify(this.employee)).subscribe(
+
+   setTimeout (() => {
+         
+     
+   
+   this.api_service.get_family_obj(this.product_id).subscribe(
       
         // console.log(data);
-        data => {alert("Succesfully Added Product details")
+        data => {
+          // {alert("Succesfully Added Product details")
+          this.famObj = data;
+          console.log(this.famObj);
+          this.findFamily(this.famObj);
         // this.findHomeViz(this.jsonObj);
       },
       error => {
-        console.error(error);
+        // console.error(error);
       }
     );
+
+    }, 1000);
+
+
 
    
     // console.log(this.shared.setMessage(this.message));
@@ -116,6 +138,18 @@ hintArr = [
   // nextCount() {
   //       this.shared.nextCount();
   //   }
+
+  findFamily(obj: []) {
+    let url = '';
+    obj.forEach((element, index) => {
+      if (element['f_id'] === this.product_id) {
+        this.gk_name = element['gk_name'];
+        this.gp_name = element['gp_name'];
+      }
+    });
+   console.log(this.gk_name);
+   console.log(this.gp_name);
+  }
 
   fetchVizObj() {
     this.api_service.get_viz_obj().subscribe(
@@ -132,7 +166,7 @@ hintArr = [
 
 
   clickFunction(event, id) {
-  	console.log(id);
+  	// console.log(id);
     //alert("clicked me!");
     this.selectedIndex = id;
 
