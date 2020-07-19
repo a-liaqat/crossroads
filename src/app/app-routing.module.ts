@@ -11,8 +11,8 @@ const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
   { path: 'main/:id', component: MainComponent },
   { path: 'hints/:id', component: HintsComponent },
-  { path: 'audio', component: AudioComponent },
-  { path: 'story', component: StoryComponent },
+  { path: 'audio/:id', component: AudioComponent },
+  { path: 'story/:id', component: StoryComponent },
   { path: 'book', component: BookComponent },
   { path: '**',  component: MainComponent }
   ];

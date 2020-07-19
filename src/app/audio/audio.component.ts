@@ -18,6 +18,12 @@ import { Component, OnInit } from '@angular/core';
 declare var $: any;
 import * as RecordRTC from 'recordrtc';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
+
+import { ApiService } from 'src/app/services/api.service';
+import { HostService } from 'src/app/services/host.service';
+import { Subscription } from 'rxjs';
+
 @Component({
   selector: 'app-audio',
   templateUrl: './audio.component.html',
@@ -32,10 +38,51 @@ recording = false;
 //URL of Blob
 url;
 error;
-constructor(private domSanitizer: DomSanitizer) {}
-sanitize(url: string) {
-return this.domSanitizer.bypassSecurityTrustUrl(url);
+
+famObj: any;
+f_id: string;
+gk_name: string;
+gp_name: string;
+hint: string;
+
+constructor(private host_service: HostService, private api_service: ApiService, private domSanitizer: DomSanitizer, private actRoute: ActivatedRoute) {
+  this.f_id = this.actRoute.snapshot.params.id;
+  console.log(this.f_id);
 }
+sanitize(url: string) {
+	return this.domSanitizer.bypassSecurityTrustUrl(url);
+}
+
+ngOnInit(): void {
+   
+   this.api_service.get_family_obj(this.f_id).subscribe(
+      
+        // console.log(data);
+        data => {
+          // {alert("Succesfully Added Product details")
+          this.famObj = data;
+          console.log(this.famObj);
+          this.findFamily(this.famObj);
+        // this.findHomeViz(this.jsonObj);
+      },
+      error => {
+        // console.error(error);
+      }
+    );
+  }
+
+    findFamily(obj: []) {
+    let url = '';
+    obj.forEach((element, index) => {
+      if (element['f_id'] === this.f_id) {
+        this.gk_name = element['gk_name'];
+        this.gp_name = element['gp_name'];
+        this.hint = element['hint'];
+      }
+    });
+   console.log(this.gk_name);
+   console.log(this.gp_name);
+  }
 /**
 * Start recording.
 */
@@ -82,5 +129,5 @@ console.log("url", this.url);
 errorCallback(error) {
 this.error = 'Can not play audio in your browser';
 }
-ngOnInit() {}
+
 }

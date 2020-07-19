@@ -9,6 +9,7 @@ import { HintsComponent } from './hints/hints.component';
 import { HintsmodalComponent } from './hints/hintsmodal/hintsmodal.component';
 import { AudioComponent } from './audio/audio.component';
 import { StoryComponent } from './story/story.component';
+import { StorymodalComponent } from './story/storymodal/storymodal.component';
 import { BookComponent } from './book/book.component';
 
 
@@ -53,6 +54,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,7 +63,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     AudioComponent,
     StoryComponent,
     HintsmodalComponent,
-    BookComponent
+    BookComponent,
+    StorymodalComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,35 @@
+/*.help{
+	height: 25px;
+	align: right;
+
+}*/
+
+img{
+	
+	width: 100px;
+	left: 0px;
+	padding-left: 30px;
+	padding-bottom: 30px;
+}
+
+.nav-button{
+	margin: 15px;
+	float: right;
+}
+
+
+.title{
+	float:left;
+	/*color: #1C39BB;*/
+	/*color: #252D58;*/
+	color: #F6B900;
+	text-align: center;
+	padding-top: 15px;
+	padding-left: 15px;
+	padding-bottom: 15px;
+	font-size: 4vh;
+	line-height: 5vh;
+	font-family: 'Raleway', sans-serif;
+
+}
+

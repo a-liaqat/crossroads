@@ -5,22 +5,31 @@
 	
 }
 
-.overlay{
+/*.overlay{
 	
-	height: 60vh;
+	height: 70vh;
 	overflow: auto;
   margin: auto;
   position: absolute;
   top: 0; left: 0; bottom: 0; right: 0;
 	
+}*/
+
+.hint{
+	margin: 0 auto;
+	width: 100%;
+	text-align: center;
+	padding: 5% 0;
 }
 
 .hint-card {
-  max-width: 50%;
+  max-width: 45%;
   /*min-height: 300px;*/
   
   margin: auto;
   border-radius: 20px !important;
+  background-color: #E2C2A7;
+  /*background-color: #1C39BB;*/
 
   
   
@@ -43,14 +52,22 @@
 	padding-top: 20px;
  text-align: center;
 
+ color: #252D58;
+font-size: 3vh;
+line-height: 4vh;
+font-family: 'Open Sans Condensed', sans-serif;
+
+
   
 }
 
 .highlight{ 
-	border: solid #FFF;
+	border: solid #F6B900;
 	/*border-style: groove;*/
 	border-width: 5px;
 
        
 
 }
+
+

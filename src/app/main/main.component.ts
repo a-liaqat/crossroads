@@ -106,9 +106,9 @@ form_submit(){
   this.api_service.get_dummy_obj(this.family).subscribe(
       
         // console.log(data);
-        data => {alert("Succesfully Added Product details")
+        // data => {alert("Succesfully Added Product details")
         // this.findHomeViz(this.jsonObj);
-      },
+      // },
       error => {
         console.error(error);
       }

@@ -1,11 +1,15 @@
-<div class = "bg" [ngStyle]="{backgroundImage: 'url(../assets/styling-images/background_wood.jpg)'}">
+<div class = "bg">
 
-<div class = "overlay" [ngStyle]="{backgroundImage: 'url(../assets/styling-images/background_papyrus.jpg)'}">
+<p class="title-sub">Story Time</p>
 
-<h1 class = "mat-headline">When you are ready to tell your story, press the "Start Recording" button</h1>
+<div class = "overlay">
+
+<p class = "instruction">{{gp_name}}: When you are ready to tell your story, press the "Start Recording" button</p>
+
+<p class = "instruction">{{gk_name}}: Help {{gp_name}} tell the story that answers the question: {{hint}}</p>
 
 <div style="text-align:center;margin-top: 200px;" >
-<button (click)="initiateRecording()" mat-raised-button *ngIf="!recording" color="primary" style="cursor: pointer;font-size: 30px;"> Start Recording </button>
+<button (click)="initiateRecording()" mat-raised-button class = "record-button" *ngIf="!recording" style="cursor: pointer;font-size: 30px;"> Start Recording </button>
 <button (click)="stopRecording()" mat-raised-button *ngIf="recording" color="warn" style="cursor: pointer;font-size: 30px;"> Stop Recording </button>
 <audio controls="" *ngIf="url">
 <source [src]="sanitize(url)" type="audio/wav">
@@ -14,7 +18,7 @@
 
 
 
-<button mat-raised-button class = "nav-button" color="primary" routerLink = "/story">Start Drawing</button>
+<button mat-raised-button class = "nav-button" [routerLink] = "['/story', f_id]">Start Drawing</button>
 
 </div>
 </div>

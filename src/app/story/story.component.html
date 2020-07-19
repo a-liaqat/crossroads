@@ -1,8 +1,31 @@
-<div class = "bg" [ngStyle]="{backgroundImage: 'url(../assets/styling-images/background_papyrus.jpg)'}">
-<p>Draw Story</p>
 
 <body>
-<iframe width="100%" height="100%" frameBorder="0" src="https://crossroads-stories.firebaseapp.com/#!/" title="W3Schools Free Online Web Tutorials"></iframe>
+
+<div class = "bg">
+
+<div class = "header">
+
+
+<div class = "title">Let's make something to remember {{gp_name}}'s story</div>
+
+<button mat-raised-button class = "nav-button"(click)="clickFunction($event)">Tell Story Again</button>
+
+<button mat-raised-button class = "nav-button"(click)="clickFunction($event)">Listen to Story</button>
+
+<button mat-raised-button class = "nav-button"(click)="clickFunction($event)">Idea Deck</button>
+
+
+
+</div>
+
+<!-- <div>
+<img id = "help" src="../assets/story-help-images/help_card.png" alt="Help card" >
+</div> -->
+
+<iframe width="100%" height="90%" frameBorder="0" src="https://crossroads-stories.firebaseapp.com/#!/"></iframe>
+
+</div>
+
+
 
 </body>
-</div>

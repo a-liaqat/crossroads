@@ -3,6 +3,7 @@
 @import '~bootstrap/dist/css/bootstrap.css';
 @import '~ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css';
 @import '~ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=Raleway&display=swap');
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
@@ -11,5 +12,63 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 	
 	min-width: 100%;
 	height: 100vh;
+	background-color: #252D58;
+	/*background-color: #1C39BB;*/
 	
+}
+
+.overlay{
+	/*background-color: #51CEB1*/
+	/*background-color: #BE9B5F*/
+	/*background-color: #E2C2A7;*/
+	/*background-color: #65A494;*/
+	background-color: #f6f6f6;
+	height: 70vh;
+	overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+
+
+}
+
+.title-heading{
+	/*color: #1C39BB;*/
+	/*color: #252D58;*/
+	color: #F6B900;
+	text-align: center;
+	padding-top: 50px;
+	padding-bottom: 25px;
+	font-size: 6vh;
+	font-family: 'Raleway', sans-serif;
+
+}
+
+.title-sub{
+	/*color: #1C39BB;*/
+	/*color: #252D58;*/
+	color: #F6B900;
+	text-align: center;
+	padding-top: 50px;
+	padding-bottom: 25px;
+	font-size: 5vh;
+	line-height: 6vh;
+	font-family: 'Raleway', sans-serif;
+
+}
+
+.instruction{
+	color: #252D58;
+	font-size: 4vh;
+	line-height: 5vh;
+	font-family: 'Open Sans Condensed', sans-serif;
+	padding: 20px;
+	text-align: center;
+	
+}
+
+.nav-button{
+	/*background-color: #00D6F6*/
+	background-color: #F6B900;
+	color: #252D58;
 }

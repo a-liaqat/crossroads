@@ -28,13 +28,24 @@ body {
  -->
 
 
-<div class = "bg" [ngStyle]="{backgroundImage: 'url(../assets/styling-images/background_wood.jpg)'}">
+<!-- <div class = "bg" [ngStyle]="{backgroundImage: 'url(../assets/styling-images/background_wood.jpg)'}"> -->
+<div class = "bg">
+<p class="title-heading"> Stories at the CrossRoads</p>
 	
-	<div class = "overlay" [ngStyle]="{backgroundImage: 'url(../assets/styling-images/background_papyrus.jpg)'}">
+	<!-- <div class = "overlay" [ngStyle]="{backgroundImage: 'url(../assets/styling-images/background_papyrus.jpg)'}"> -->
+<div class = "wrapper">
+  <div class = "overlay-left" >
+
+  <div class = "intro">
+  <p class = "intro-text"> Crossroads: stories is a research project about stories and culture and connection generations of immigrant families. This tool is for grandparents and grandchildren to have fun together</p>
+  </div>
+  </div>
+
+  <div class = "overlay-right" >
 
   <div class = "sign-up">
-
-  <h1 class="mat-display-1"> CrossRoads: Stories</h1>
+  
+  <p class="instruction"> Sign In</p>
 	
 	<form class="example-form">
 
@@ -56,14 +67,15 @@ body {
 </form>
 
 </div>
+
   <!-- <h1>{{product.id}}</h1> -->
 
-	<button mat-raised-button class = "nav-button" color="primary" (click) = "form_submit()" [routerLink] = "['/hints', f_id]">Start Storytelling</button>
+	<button mat-raised-button class = "nav-button" (click) = "form_submit()" [routerLink] = "['/hints', f_id]">Start Storytelling</button>
 
    <!-- <p>{{product_id}}</p>
     <a [routerLink]="['/hints', product_id]">Product Detail</a> -->
 
 </div>
-	
+</div>
 </div>
 

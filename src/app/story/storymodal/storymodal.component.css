@@ -1,0 +1,13 @@
+.idea-card {
+  width: 75vh;
+  height: 25vh;
+	text-align: center;
+	padding: 5% 0;
+  margin: auto;
+  border-radius: 20px !important;
+  background-color: #E2C2A7;
+  /*background-color: #1C39BB;*/
+
+  
+  
+}

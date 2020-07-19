@@ -7,7 +7,7 @@
 
 
 
-.overlay{
+/*.overlay{
 	
 	height: 60vh;
 	overflow: auto;
@@ -16,18 +16,48 @@
   top: 0; left: 0; bottom: 0; right: 0;
   padding: 50px;
 	
-}
+}*/
 
 .sign-up{
 	margin: 0 auto;
-	width: 50%;
+	width: 100%;
 	text-align: center;
+	padding: 5% 0;
+
+	
+
+}
+
+.intro{
+	margin: 0 auto;
+	width: 100%;
+	padding: 5% 0;
+}
+
+.intro-text{
+	color: #252D58;
+	font-size: 4vh;
+	line-height: 5vh;
+	font-family: 'Open Sans Condensed', sans-serif;
+	padding: 30px;
+	padding-top: 50px;
+
+	
+
+	
 }
 
 .example-form {
   min-width: 150px;
   max-width: 500px;
   width: 100%;
+  background-color: #F1CEB1;
+  padding: 25px;
+  border-radius: 20px !important;;
+  margin: auto;
+
+
+
 }
 
 .example-full-width {
@@ -36,6 +66,27 @@
 
 .nav-button{
 	/*justify-content: flex-end;*/
-	float: right;
-	margin: 20px;
+	/*float: right;*/
+	margin: 0 auto;
+	display: block;
+	/*margin: 20px;*/
+}
+
+.wrapper {
+  display: flex;
+  height: 75vh;
+}
+
+.overlay-left {
+  flex: 0 0 40%;
+  /*background-color: #BE9B5F;*/
+  background-color: #f6f6f6;
+  align-items: center; 
+}
+
+.overlay-right {
+  flex: 1;
+  /*background-color: #F1CEB1;*/
+  background-color: #f6f6f6;
+
 }

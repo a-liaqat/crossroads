@@ -1,13 +1,18 @@
-<div class = "bg" [ngStyle]="{backgroundImage: 'url(../assets/styling-images/background_wood.jpg)'}">
+<div class = "bg">
 
-<div class = "overlay" [ngStyle]="{backgroundImage: 'url(../assets/styling-images/background_papyrus.jpg)'}">
+<p class="title-sub"> Let's come up with an idea for a story</p>
 
-<h1 class = "mat-headline">{{gk_name}} Pick a hint!</h1>
+<div class = "overlay">
 
-<owl-carousel-o [options]="customOptions">
+<div class = "hint">
+
+<p class = "instruction">{{gk_name}}, Can you help {{gp_name}} pick a hint?</p>
+
+<owl-carousel-o [options]="customOptions" class = "carousel">
  
     <ng-template carouselSlide *ngFor="let hint of hintArr" [id]="hint.id">
-    	<mat-card class="hint-card" [ngStyle]="{backgroundImage: 'url(../assets/styling-images/background_fabric.jpg)'}" (click)="clickFunction($event, hint.id)" [ngClass]="{'highlight': selectedIndex === hint.id}">
+    	<!-- <mat-card class="hint-card" [ngStyle]="{backgroundImage: 'url(../assets/styling-images/background_fabric.jpg)'}" (click)="clickFunction($event, hint.id)" [ngClass]="{'highlight': selectedIndex === hint.id}"> -->
+      <mat-card class="hint-card" (click)="clickFunction($event, hint.id)" [ngClass]="{'highlight': selectedIndex === hint.id}">
 
       <div class = "image-container">
       	<img class = "hint-image" [src]="hint.src">
@@ -16,9 +21,9 @@
 
 		
 	
-      <mat-card-header  >
-	    	<mat-card-title class = "hint-question">{{hint.question}}</mat-card-title>
-	     </mat-card-header>
+      <!-- <mat-card-header  > -->
+	    	<mat-card-title class = "hint-question"> {{gp_name}}, {{hint.question}}</mat-card-title>
+	     <!-- </mat-card-header> -->
 	
 
  <!-- <mat-card-actions>
@@ -31,7 +36,7 @@
     </ng-template>
    
 </owl-carousel-o>
-<h6>Product Id: {{product_id}}</h6>
+</div>
  
 
 </div>
