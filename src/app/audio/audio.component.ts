@@ -32,7 +32,7 @@ import { Subscription } from 'rxjs';
 export class AudioComponent implements OnInit {
 title = 'micRecorder';
 //Lets declare Record OBJ
-record;
+public record;
 //Will use this flag for toggeling recording
 recording = false;
 //URL of Blob
@@ -45,11 +45,13 @@ gk_name: string;
 gp_name: string;
 hint: string;
 
+
 constructor(private host_service: HostService, private api_service: ApiService, private domSanitizer: DomSanitizer, private actRoute: ActivatedRoute) {
   this.f_id = this.actRoute.snapshot.params.id;
   console.log(this.f_id);
 }
 sanitize(url: string) {
+  console.log(this.domSanitizer.bypassSecurityTrustUrl(url))
 	return this.domSanitizer.bypassSecurityTrustUrl(url);
 }
 
@@ -111,17 +113,30 @@ this.record.record();
 * Stop recording.
 */
 stopRecording() {
+  
 this.recording = false;
 this.record.stop(this.processRecording.bind(this));
+this.record.reset(this.processRecording.bind(this));
+
+
 }
+
 /**
 * processRecording Do what ever you want with blob
 * @param  {any} blob Blog
 */
 processRecording(blob) {
 this.url = URL.createObjectURL(blob);
+// this.record.save('audio.wav');
+
+
+// this.record.invokeSaveAsDialog(blob, '');
+// var data = new FormData();
+// data.append('blob', blob);
 console.log("blob", blob);
+// console.log("data", data);
 console.log("url", this.url);
+
 }
 /**
 * Process Error.

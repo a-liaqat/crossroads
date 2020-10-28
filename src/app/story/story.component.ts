@@ -7,6 +7,8 @@ import { ApiService } from 'src/app/services/api.service';
 import { HostService } from 'src/app/services/host.service';
 import { Subscription } from 'rxjs';
 import {SharedService} from 'src/app/services/shared/shared.service';
+import * as RecordRTC from 'recordrtc';
+import { DomSanitizer } from '@angular/platform-browser';
 
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
@@ -24,8 +26,14 @@ gp_name: string;
 hint: string;
 idea_index = 0;
 
-
 stringifiedData: any;
+
+public record;
+//Will use this flag for toggeling recording
+recording = false;
+//URL of Blob
+url;
+error;
 
 ideasArr = [
     {
@@ -57,11 +65,15 @@ ideasArr = [
     }
   ]  
 
-  constructor(private host_service: HostService, private api_service: ApiService, public dialog: MatDialog, private actRoute: ActivatedRoute) { 
+  constructor(private host_service: HostService, private api_service: ApiService, public dialog: MatDialog, private actRoute: ActivatedRoute, private domSanitizer: DomSanitizer) { 
   		this.f_id = this.actRoute.snapshot.params.id;
       this.idea_index = this.ideasArr.length-1;
 
   }
+
+  sanitize(url: string) {
+  return this.domSanitizer.bypassSecurityTrustUrl(url);
+}
 
   ngOnInit(): void {
 
@@ -136,6 +148,66 @@ ideasArr = [
 
     
   }
+
+  /**
+* Start recording.
+*/
+initiateRecording() {
+this.recording = true;
+let mediaConstraints = {
+video: false,
+audio: true
+};
+navigator.mediaDevices.getUserMedia(mediaConstraints).then(this.successCallback.bind(this), this.errorCallback.bind(this));
+}
+/**
+* Will be called automatically.
+*/
+successCallback(stream) {
+var options = {
+mimeType: "audio/wav",
+numberOfAudioChannels: 1
+};
+//Start Actuall Recording
+var StereoAudioRecorder = RecordRTC.StereoAudioRecorder;
+this.record = new StereoAudioRecorder(stream, options);
+this.record.record();
+}
+/**
+* Stop recording.
+*/
+stopRecording() {
+  
+this.recording = false;
+this.record.stop(this.processRecording.bind(this));
+this.record.reset(this.processRecording.bind(this));
+
+
+}
+
+/**
+* processRecording Do what ever you want with blob
+* @param  {any} blob Blog
+*/
+processRecording(blob) {
+this.url = URL.createObjectURL(blob);
+// this.record.save('audio.wav');
+
+
+// this.record.invokeSaveAsDialog(blob, '');
+// var data = new FormData();
+// data.append('blob', blob);
+console.log("blob", blob);
+// console.log("data", data);
+console.log("url", this.url);
+
+}
+/**
+* Process Error.
+*/
+errorCallback(error) {
+this.error = 'Can not play audio in your browser';
+}
 
 
 }

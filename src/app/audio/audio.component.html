@@ -8,17 +8,19 @@
 
 <p class = "instruction">{{gk_name}}: Help {{gp_name}} tell the story that answers the question: {{hint}}</p>
 
-<div style="text-align:center;margin-top: 200px;" >
+<div style="text-align:center;margin-top: 10vh;" >
 <button (click)="initiateRecording()" mat-raised-button class = "record-button" *ngIf="!recording" style="cursor: pointer;font-size: 30px;"> Start Recording </button>
-<button (click)="stopRecording()" mat-raised-button *ngIf="recording" color="warn" style="cursor: pointer;font-size: 30px;"> Stop Recording </button>
+<button (click)="stopRecording()" mat-raised-button class = "record-button-stop" *ngIf="recording" color="warn" style="cursor: pointer;font-size: 30px;"> Stop Recording </button>
+<br>
 <audio controls="" *ngIf="url">
 <source [src]="sanitize(url)" type="audio/wav">
 </audio>
 </div>
 
 
-
+<div>
 <button mat-raised-button class = "nav-button" [routerLink] = "['/story', f_id]">Start Drawing</button>
+</div>
 
 </div>
 </div>

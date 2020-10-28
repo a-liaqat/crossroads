@@ -82,6 +82,7 @@ hintArr = [
 
   constructor(private host_service: HostService, private api_service: ApiService, private shared: SharedService, public dialog: MatDialog, private actRoute: ActivatedRoute) { 
      this.f_id = this.actRoute.snapshot.params.id;
+     console.log(this.f_id);
 
 
 
@@ -107,7 +108,7 @@ hintArr = [
    setTimeout (() => {
          
      
-   
+   do {
    this.api_service.get_family_obj(this.f_id).subscribe(
       
         // console.log(data);
@@ -116,13 +117,17 @@ hintArr = [
           console.log(this.famObj);
           this.findFamily(this.famObj);
         // this.findHomeViz(this.jsonObj);
+        console.log(this.gk_name)
       },
       error => {
         // console.error(error);
       }
     );
+ }
 
-    }, 250);
+ while (this.gk_name);
+
+    }, 500);
    
   }
 

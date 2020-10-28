@@ -8,11 +8,21 @@
 
 <div class = "title">Let's make something to remember {{gp_name}}'s story</div>
 
-<button mat-raised-button class = "nav-button"(click)="clickFunction($event)">Tell Story Again</button>
+<!-- <button mat-raised-button class = "nav-button"(click)="clickFunction($event)">Tell Story Again</button> -->
 
-<button mat-raised-button class = "nav-button"(click)="clickFunction($event)">Listen to Story</button>
+
+<!-- <button (click)="initiateRecording()" mat-raised-button class = "nav-button" *ngIf="!recording"> Tell Story Again</button>
+
+<button (click)="stopRecording()" mat-raised-button class = "nav-button" *ngIf="recording" color="warn"> Stop Recording </button> -->
+
+<!-- <button mat-raised-button class = "nav-button"(click)="clickFunction($event)">Listen to Story</button> -->
 
 <button mat-raised-button class = "nav-button"(click)="clickFunction($event)">Idea Deck</button>
+
+<br>
+<audio controls="" *ngIf="url">
+<source [src]="sanitize(url)" type="audio/wav">
+</audio>
 
 
 
