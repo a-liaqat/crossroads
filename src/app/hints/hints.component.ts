@@ -44,25 +44,37 @@ employee=
 hintArr = [
     {
       id:0,
+      src:'../assets/hint-images/hint0.png',
+      question: 'what are some memories you have of your childhood?'
+    },
+
+    {
+      id:1,
       src:'../assets/hint-images/hint1.png',
       question: 'what is something funny that happened to you in school?'
     },
 
     {
-      id:1,
+      id:2,
       src:'../assets/hint-images/hint2.png',
       question:'what do you remember about moving to Canada?'
     },
 
     {
-      id:2,
+      id:3,
       src:'../assets/hint-images/hint3.png',
-      question:'what is a fun trip you took together?'
+      question:'what is a fun trip we took together?'
     },
 
     {
-      id:3,
+      id:4,
       src:'../assets/hint-images/hint4.png',
+      question:'what is a life lesson you want me to learn?'
+    },
+
+    {
+      id:5,
+      src:'../assets/hint-images/hint5.png',
       question:'do you already have a story you want to tell?'
     }
   ]
@@ -74,7 +86,7 @@ hintArr = [
     pullDrag: false,
     dots: false,
     navSpeed: 700,
-    navText: ['Previous', 'Next'],
+    navText: ['Previous Hint', 'Next Hint'],
     items: 1,
     nav: true,
     center: true,
@@ -125,7 +137,7 @@ hintArr = [
     );
  }
 
- while (this.gk_name);
+ while (this.gk_name!=null);
 
     }, 500);
    

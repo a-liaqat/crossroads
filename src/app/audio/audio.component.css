@@ -18,7 +18,8 @@
 	/*background-color: #00D6F6*/
 	height: 10vh;
 	/*background-color: #65A494;*/
-	background-color: #F6B900;
+	
+	background-color: #F1cEb1;
 	color: #252D58;
 	border-radius: 20px !important;
 	margin: 15px;
@@ -28,8 +29,13 @@
 	/*background-color: #00D6F6*/
 	height: 10vh;
 	/*background-color: #65A494;*/
-	background-color: #F1cEb1;
+	background-color: #F6B900;
 	color: #252D58;
 	border-radius: 20px !important;
 	margin: 15px;
+}
+
+img{
+	height: 50px;
+	width:50px;
 }

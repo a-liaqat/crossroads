@@ -35,6 +35,7 @@ title = 'micRecorder';
 public record;
 //Will use this flag for toggeling recording
 recording = false;
+rerecording = false;
 //URL of Blob
 url;
 error;
@@ -44,6 +45,7 @@ f_id: string;
 gk_name: string;
 gp_name: string;
 hint: string;
+audio_state = "unrecorded";
 
 
 constructor(private host_service: HostService, private api_service: ApiService, private domSanitizer: DomSanitizer, private actRoute: ActivatedRoute) {
@@ -89,7 +91,12 @@ ngOnInit(): void {
 * Start recording.
 */
 initiateRecording() {
+if (this.rerecording==true){
+  this.record.destroy(function(){});
+}
+
 this.recording = true;
+this.audio_state = "recording";
 let mediaConstraints = {
 video: false,
 audio: true
@@ -104,9 +111,12 @@ var options = {
 mimeType: "audio/wav",
 numberOfAudioChannels: 1
 };
+
+
 //Start Actuall Recording
 var StereoAudioRecorder = RecordRTC.StereoAudioRecorder;
 this.record = new StereoAudioRecorder(stream, options);
+
 this.record.record();
 }
 /**
@@ -115,8 +125,10 @@ this.record.record();
 stopRecording() {
   
 this.recording = false;
+this.rerecording = true;
+this.audio_state = "recorded";
 this.record.stop(this.processRecording.bind(this));
-this.record.reset(this.processRecording.bind(this));
+// this.record.reset(this.processRecording.bind(this));
 
 
 }

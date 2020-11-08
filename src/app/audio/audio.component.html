@@ -9,8 +9,14 @@
 <p class = "instruction">{{gk_name}}: Help {{gp_name}} tell the story that answers the question: {{hint}}</p>
 
 <div style="text-align:center;margin-top: 10vh;" >
-<button (click)="initiateRecording()" mat-raised-button class = "record-button" *ngIf="!recording" style="cursor: pointer;font-size: 30px;"> Start Recording </button>
-<button (click)="stopRecording()" mat-raised-button class = "record-button-stop" *ngIf="recording" color="warn" style="cursor: pointer;font-size: 30px;"> Stop Recording </button>
+
+
+<button (click)="initiateRecording()" mat-raised-button class = "record-button" *ngIf="audio_state=='unrecorded'" style="cursor: pointer;font-size: 30px;"> Start Recording </button>
+
+
+<button  (click)="stopRecording()" mat-raised-button class = "record-button-stop" *ngIf="audio_state=='recording'" color="warn" style="cursor: pointer;font-size: 30px;"> Stop Recording <img src = '../assets/audio-images/wave-orange.gif'></button>
+
+
 <br>
 <audio controls="" *ngIf="url">
 <source [src]="sanitize(url)" type="audio/wav">

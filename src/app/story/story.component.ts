@@ -43,24 +43,28 @@ ideasArr = [
 
     {
       id:1,
-      idea:'_gp_, what is a lesson you want _gk_ to learn from this story? Can you add it to the story _gk_?'
+      idea:'_gk_, pick a picture that you haven’t seen before. Ask _gp_ to explain what it is.'
     },
-
     {
-      id:2,
-      idea:'_gp_, what is a detail that is missing from this story? Can you help _gk_ add it?'
+     id:2,
+      idea:"_gk_, what is a fun fact you can tell _gp_? This can be an English word, what you do during lunch at school, or anything you want to share."
     },
 
     {
       id:3,
+      idea:'_gp_, what is a detail that is missing from this story? Can you help _gk_ add it?'
+    },
+
+    {
+      id:4,
       idea:"_gk_, what is something you don't know about _gp_'s life? Can you show it in the story?"
     },
     {
-     id:4,
+     id:5,
       idea:'_gp_, what is a piece of advice you can give _gk_? Can you add it to the story _gk_?'
     },
     {
-     id:5,
+     id:6,
       idea:'_gp_ and _gk_, what are the biggest differences between Canada and back home? Can you show it in the story?'
     }
   ]  
